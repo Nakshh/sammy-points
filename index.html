@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAMMY Sigma Eta Points Tracker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #0e1e40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    table {
+      width: 95%;
+      margin: 2rem auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #f1f1f1;
+    }
+    tr:hover {
+      background: #f9f9f9;
+    }
+    .info-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      background: #0e1e40;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      max-height: 90%;
+      width: 90%;
+      overflow-y: auto;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    .modal-content pre {
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SAMMY Sigma Eta Points Tracker</h1>
+    <p>Fall 2025 | Updated Weekly</p>
+  </header>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Points</th>
+        <th>Chapter</th>
+        <th>Rush 1</th>
+        <th>Rush 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sample row, duplicate/edit freely -->
+      <tr><td>Alex Claure</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Aneesh Sathaye</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Nathan Azimov</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Nakshh Kohli</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>David Schwartzman</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Truman Parrish</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Andrew Robertson</td><td>+10</td><td>✅</td><td>⚠️ (left early)</td><td>✅</td></tr>
+      <tr><td>Aditya Munot</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Cole Cannon</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Loick Trampont</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Max Anderson</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Santiago Chapa</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Mason Chung</td><td>-6</td><td>❌</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Neal Singh</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      <tr><td>Spencer Bowles</td><td>-6</td><td>❌</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Mitchell Price</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Info Modal Button -->
+  <button class="info-btn" onclick="document.getElementById('modal').style.display='flex'">ℹ️</button>
+
+  <!-- Modal Content -->
+  <div id="modal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+      <h2>SAMMY Sigma Eta Points System</h2>
+      <pre>
+🧮 Timeframe: Weekly tracking. Points roll over during semester and reset at the end.
+Baseline: Everyone starts at 0 points.
+Positive = contributions.
+Negative = missed duties or behavior issues.
+Points can be spent on perks — currency resets to 0 when redeemed.
+Excuses must be submitted via Google Form 24+ hrs before event (unless emergency).
+
+📈 Positive Points
++5 – Attend Chapter (on time, full duration)
++2 – Attend Brotherhood Event (optional)
++5 – Attend Philanthropy Event
++3 – Attend Rush Event (optional)
++2 – Bring a Potential Rush
++2 – Help Set Up / Clean Event
++1/hr – Table During Rush
++2 – Tutor a Brother
++4 – Organize an Event (EC-approved)
++1 – Submit Exam Schedule or Transcript
++10 – GPA Increase ≥ 0.3
++10 – GPA Above 3.5
+
+📉 Negative Points
+-5 – Miss Chapter w/o Valid Excuse
+-1 – Late to Chapter / Leave Early
+-3 – Miss Mandatory Event
+-3 – Sign Up to Help but No Show
+-2 – Miss Rush Event w/o Excuse
+-2 – Fail Committee Task
+-5 – Doesn’t Participate in Rush Week
+-5 – Disrespectful / Problematic Behavior
+-1 – Ignore GroupMe @mentions (48+ hrs)
+-5 – Lie About Attendance
+
+💰 Points as Currency
+6 pts – Brotherhood Dinner Buyout
+8 pts – Skip Setup/Cleanup
+6 pts – Skip Required Study Session
+12 pts – Priority Big-Little Draft
+30 pts – Rent House Room (1 night)
+15 pts – Pick Brotherhood Activity
+10 pts – Merch Discount ($10 off)
+
+⚠️ Negative Balance Consequences
+-5 pts – Formal warning
+-10 pts – Barred from social
+-15 pts – Exec review + no vote
+-20 pts – Removal
+
+Appeals in person at Chapter. System evolves at EC discretion.
+      </pre>
+    </div>
+  </div>
+</body>
+</html>
