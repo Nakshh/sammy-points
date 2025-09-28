@@ -17,9 +17,61 @@
       padding: 1rem;
       text-align: center;
     }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    /* Podium */
+    .podium {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      align-items: end;
+      margin: 1rem auto 0.5rem;
+      max-width: 720px;
+    }
+    .podium-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0.75rem;
+      border-radius: 12px 12px 4px 4px;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .podium-card h3 {
+      margin: 0.25rem 0 0;
+      font-size: 1rem;
+      line-height: 1.2;
+      color: #fff;
+    }
+    .podium-card .pts {
+      font-weight: 700;
+      opacity: 0.95;
+      margin-bottom: 0.25rem;
+    }
+    .podium-card .names { display: flex; flex-direction: column; gap: 2px; margin-top: 0.1rem; }
+    .podium-card .names div { font-size: 0.95rem; line-height: 1.2; color: #fff; }
+    .podium-1 { background: linear-gradient(180deg,#f7ce43,#e0a800); }
+    .podium-2 { background: linear-gradient(180deg,#d6d9de,#9aa3ad); }
+    .podium-3 { background: linear-gradient(180deg,#e1a36a,#b2703b); }
+    .podium .rank { font-size: 1.25rem; }
+    @media (max-width: 640px) {
+      .podium { gap: 8px; }
+      .podium-card h3 { font-size: 0.95rem; }
+    }
+    .podium-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
     table {
-      width: 95%;
-      margin: 2rem auto;
+      width: 100%;
+      margin: 1rem auto 2rem;
       border-collapse: collapse;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -34,6 +86,11 @@
     }
     tr:hover {
       background: #f9f9f9;
+    }
+    .table-wrap { width: 95%; margin: 0 auto; overflow-x: auto; }
+    @media (max-width: 640px) {
+      .table-wrap { width: 98%; }
+      th, td { padding: 0.65rem 0.75rem; }
     }
     .info-btn {
       position: fixed;
@@ -77,44 +134,53 @@
       font-size: 1.2rem;
       color: #666;
     }
+    /* Modal tables */
+    .modal-content h2 { margin-top: 0; }
+    .modal-content h3 { margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .modal-content table { width: 100%; border-collapse: collapse; box-shadow: none; }
+    .modal-content th, .modal-content td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #eee; text-align: left; }
+    .modal-content th { background: #f7f7f7; }
+    .modal-content .note { color: #666; font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <header>
     <h1>SAMMY Sigma Eta Points Tracker</h1>
-    <p>Fall 2025 | Updated Weekly</p>
+    <p>Fall 2025 | Data from <code>points.json</code></p>
   </header>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Points</th>
-        <th>Chapter</th>
-        <th>Rush 1</th>
-        <th>Rush 2</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Sample row, duplicate/edit freely -->
-      <tr><td>Alex Claure</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Aneesh Sathaye</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Nathan Azimov</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Nakshh Kohli</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>David Schwartzman</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Truman Parrish</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Andrew Robertson</td><td>+10</td><td>✅</td><td>⚠️ (left early)</td><td>✅</td></tr>
-      <tr><td>Aditya Munot</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Cole Cannon</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Loick Trampont</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Max Anderson</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Santiago Chapa</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Mason Chung</td><td>-6</td><td>❌</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Neal Singh</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-      <tr><td>Spencer Bowles</td><td>-6</td><td>❌</td><td>❌</td><td>❌</td></tr>
-      <tr><td>Mitchell Price</td><td>+13</td><td>✅</td><td>✅</td><td>✅</td></tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="podium" id="podium" aria-label="Top 3">
+      <div class="podium-card podium-2" id="podium-2" style="height:80px">
+        <div class="rank">🥈</div>
+        <div class="pts" id="p2-pts">—</div>
+        <div class="names" id="p2-names"><div>Second</div></div>
+      </div>
+      <div class="podium-card podium-1" id="podium-1" style="height:160px">
+        <div class="rank">🥇</div>
+        <div class="pts" id="p1-pts">—</div>
+        <div class="names" id="p1-names"><div>First</div></div>
+      </div>
+      <div class="podium-card podium-3" id="podium-3" style="height:40px">
+        <div class="rank">🥉</div>
+        <div class="pts" id="p3-pts">—</div>
+        <div class="names" id="p3-names"><div>Third</div></div>
+      </div>
+    </div>
+    <div class="podium-caption">Top 3 by points</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:70%">Name</th>
+          <th style="width:30%">Points</th>
+        </tr>
+      </thead>
+      <tbody id="points-body"></tbody>
+    </table>
+  </div>
 
   <!-- Info Modal Button -->
   <button class="info-btn" onclick="document.getElementById('modal').style.display='flex'">ℹ️</button>
@@ -124,58 +190,177 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="document.getElementById('modal').style.display='none'">&times;</span>
       <h2>SAMMY Sigma Eta Points System</h2>
-      <pre>
-🧮 Timeframe: Weekly tracking. Points roll over during semester and reset at the end.
-Baseline: Everyone starts at 0 points.
-Positive = contributions.
-Negative = missed duties or behavior issues.
-Points can be spent on perks — currency resets to 0 when redeemed.
-Excuses must be submitted via Google Form 24+ hrs before event (unless emergency).
+      <p class="note">Timeframe: weekly tracking. Points roll over during the semester and reset at the end. Everyone starts at 0. Positive = contributions, Negative = missed duties/behavior. Points can be spent on perks (balance reduces when redeemed). Submit excuses via GroupMe 24+ hours prior (unless emergency).</p>
 
-📈 Positive Points
-+5 – Attend Chapter (on time, full duration)
-+2 – Attend Brotherhood Event (optional)
-+5 – Attend Philanthropy Event
-+3 – Attend Rush Event (optional)
-+2 – Bring a Potential Rush
-+2 – Help Set Up / Clean Event
-+1/hr – Table During Rush
-+2 – Tutor a Brother
-+4 – Organize an Event (EC-approved)
-+1 – Submit Exam Schedule or Transcript
-+10 – GPA Increase ≥ 0.3
-+10 – GPA Above 3.5
+      <h3>Positive Points</h3>
+      <table>
+        <thead>
+          <tr><th>Action</th><th>Points</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Attend Chapter (on time, full duration)</td><td>+5</td></tr>
+          <tr><td>Attend Brotherhood Event (optional)</td><td>+2</td></tr>
+          <tr><td>Attend Philanthropy Event</td><td>+5</td></tr>
+          <tr><td>Attend Rush Event (optional)</td><td>+3</td></tr>
+          <tr><td>Bring a Potential Rush</td><td>+2</td></tr>
+          <tr><td>Help Set Up / Clean Event</td><td>+2</td></tr>
+          <tr><td>Table During Rush</td><td>+1 per hour</td></tr>
+          <tr><td>Tutor a Brother</td><td>+2</td></tr>
+          <tr><td>Organize an Event (EC-approved)</td><td>+4</td></tr>
+          <tr><td>Submit Exam Schedule or Transcript</td><td>+1</td></tr>
+          <tr><td>GPA Increase ≥ 0.3</td><td>+10</td></tr>
+          <tr><td>GPA Above 3.5</td><td>+10</td></tr>
+        </tbody>
+      </table>
 
-📉 Negative Points
--5 – Miss Chapter w/o Valid Excuse
--1 – Late to Chapter / Leave Early
--3 – Miss Mandatory Event
--3 – Sign Up to Help but No Show
--2 – Miss Rush Event w/o Excuse
--2 – Fail Committee Task
--5 – Doesn’t Participate in Rush Week
--5 – Disrespectful / Problematic Behavior
--1 – Ignore GroupMe @mentions (48+ hrs)
--5 – Lie About Attendance
+      <h3>Negative Points</h3>
+      <table>
+        <thead>
+          <tr><th>Action</th><th>Points</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Miss Chapter w/o Valid Excuse</td><td>-5</td></tr>
+          <tr><td>Late to Chapter / Leave Early</td><td>-1</td></tr>
+          <tr><td>Miss Mandatory Event</td><td>-3</td></tr>
+          <tr><td>Sign Up to Help but No Show</td><td>-3</td></tr>
+          <tr><td>Miss Rush Event w/o Excuse</td><td>-2</td></tr>
+          <tr><td>Fail Committee Task</td><td>-2</td></tr>
+          <tr><td>Doesn’t Participate in Rush Week</td><td>-5</td></tr>
+          <tr><td>Disrespectful / Problematic Behavior</td><td>-5</td></tr>
+          <tr><td>Ignore GroupMe @mentions (48+ hrs)</td><td>-1</td></tr>
+          <tr><td>Lie About Attendance</td><td>-5</td></tr>
+        </tbody>
+      </table>
 
-💰 Points as Currency
-6 pts – Brotherhood Dinner Buyout
-8 pts – Skip Setup/Cleanup
-6 pts – Skip Required Study Session
-12 pts – Priority Big-Little Draft
-30 pts – Rent House Room (1 night)
-15 pts – Pick Brotherhood Activity
-10 pts – Merch Discount ($10 off)
+      <h3>Points as Currency</h3>
+      <table>
+        <thead>
+          <tr><th>Perk</th><th>Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Brotherhood Dinner Buyout</td><td>6 pts</td></tr>
+          <tr><td>Skip Setup/Cleanup</td><td>8 pts</td></tr>
+          <tr><td>Skip Required Study Session</td><td>6 pts</td></tr>
+          <tr><td>Priority Big-Little Draft</td><td>12 pts</td></tr>
+          <tr><td>Rent House Room (1 night)</td><td>30 pts</td></tr>
+          <tr><td>Pick Brotherhood Activity</td><td>15 pts</td></tr>
+          <tr><td>Merch Discount ($10 off)</td><td>10 pts</td></tr>
+        </tbody>
+      </table>
 
-⚠️ Negative Balance Consequences
--5 pts – Formal warning
--10 pts – Barred from social
--15 pts – Exec review + no vote
--20 pts – Removal
+      <h3>Negative Balance Consequences</h3>
+      <table>
+        <thead>
+          <tr><th>Threshold</th><th>Consequence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>-5 pts</td><td>Formal warning</td></tr>
+          <tr><td>-10 pts</td><td>Barred from social</td></tr>
+          <tr><td>-15 pts</td><td>Exec review + no vote</td></tr>
+          <tr><td>-20 pts</td><td>Removal</td></tr>
+        </tbody>
+      </table>
 
-Appeals in person at Chapter. System evolves at EC discretion.
-      </pre>
+      <p class="note">Appeals in person at Chapter. System evolves at EC discretion.</p>
     </div>
   </div>
+
+  <script>
+    async function loadPoints() {
+      try {
+        const res = await fetch('points.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Failed to load points.json');
+        const data = await res.json();
+        return normalize(data);
+      } catch (e) {
+        console.error(e);
+        return [];
+      }
+    }
+
+    function normalize(data) {
+      // Accept either [{ name, points }] or { name: points, ... }
+      if (Array.isArray(data)) {
+        return data
+          .map(x => ({ name: String(x.name || '').trim(), points: Number(x.points) }))
+          .filter(x => x.name);
+      }
+      if (data && typeof data === 'object') {
+        return Object.entries(data).map(([name, points]) => ({ name, points: Number(points) }));
+      }
+      return [];
+    }
+
+    function renderTable(list) {
+      const tbody = document.getElementById('points-body');
+      tbody.innerHTML = '';
+      list.forEach(({ name, points }) => {
+        const tr = document.createElement('tr');
+        const tdName = document.createElement('td');
+        const tdPts = document.createElement('td');
+        tdName.textContent = name;
+        tdPts.textContent = String(points);
+        tr.appendChild(tdName);
+        tr.appendChild(tdPts);
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderPodiumGroups(sortedList) {
+      // Group by points to handle ties
+      const groupsMap = new Map();
+      for (const item of sortedList) {
+        const key = item.points;
+        if (!groupsMap.has(key)) groupsMap.set(key, []);
+        groupsMap.get(key).push(item);
+      }
+      const groups = Array.from(groupsMap.entries())
+        .sort((a,b) => b[0] - a[0]) // descending by points
+        .slice(0, 3); // top 3 ranks (with ties per rank)
+
+      const cardMeta = [
+        { namesId: 'p1-names', ptsId: 'p1-pts', cardId: 'podium-1', mult: 1.00 },
+        { namesId: 'p2-names', ptsId: 'p2-pts', cardId: 'podium-2', mult: 0.88 },
+        { namesId: 'p3-names', ptsId: 'p3-pts', cardId: 'podium-3', mult: 0.75 },
+      ];
+
+      const maxPoints = groups.length ? Math.max(...groups.map(([pts]) => Math.max(1, Number(pts)))) : 1;
+
+      cardMeta.forEach((meta, idx) => {
+        const group = groups[idx];
+        const namesEl = document.getElementById(meta.namesId);
+        const ptsEl = document.getElementById(meta.ptsId);
+        const cardEl = document.getElementById(meta.cardId);
+        if (!namesEl || !ptsEl || !cardEl) return;
+        namesEl.innerHTML = '';
+        if (group) {
+          const [points, entries] = group;
+          for (const entry of entries) {
+            const div = document.createElement('div');
+            const first = String(entry.name || '').trim().split(/\s+/)[0] || '—';
+            div.textContent = first;
+            namesEl.appendChild(div);
+          }
+          ptsEl.textContent = `${points} pts`;
+          const h = 90 + Math.round((Number(points) / maxPoints) * 90 * meta.mult);
+          cardEl.style.height = `${Math.max(80, h)}px`;
+        } else {
+          const div = document.createElement('div');
+          div.textContent = '—';
+          namesEl.appendChild(div);
+          ptsEl.textContent = '—';
+          cardEl.style.height = `80px`;
+        }
+      });
+    }
+
+    (async function init() {
+      const list = (await loadPoints())
+        .sort((a, b) => (b.points - a.points) || a.name.localeCompare(b.name));
+      renderTable(list);
+      // Build podium by groups to handle ties
+      renderPodiumGroups(list);
+    })();
+  </script>
 </body>
 </html>
