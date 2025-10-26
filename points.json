@@ -1,18 +1,18 @@
 [
-  { "name": "Alex Claure", "points": 30 },
-  { "name": "Aneesh Sathaye", "points": 26 },
-  { "name": "Nathan Azimov", "points": 24 },
-  { "name": "Nakshh Kohli", "points": 23 },
-  { "name": "David Schwartzman", "points": 24 },
-  { "name": "Truman Parrish", "points": 24 },
-  { "name": "Andrew Robertson", "points": 16 },
-  { "name": "Aditya Munot", "points": 20 },
-  { "name": "Cole Cannon", "points": 18 },
-  { "name": "Loick Trampont", "points": 20 },
-  { "name": "Max Anderson", "points": 10 },
-  { "name": "Santiago Chapa", "points": 18 },
-  { "name": "Neal Singh", "points": 18 },
-  { "name": "Mitchell Price", "points": 15 }
+  { "name": "Alex Claure", "points": 50 },
+  { "name": "Aneesh Sathaye", "points": 36 },
+  { "name": "Nathan Azimov", "points": 38 },
+  { "name": "Nakshh Kohli", "points": 42 },
+  { "name": "David Schwartzman", "points": 46 },
+  { "name": "Truman Parrish", "points": 46 },
+  { "name": "Andrew Robertson", "points": 32 },
+  { "name": "Aditya Munot", "points": 40 },
+  { "name": "Cole Cannon", "points": 34 },
+  { "name": "Loick Trampont", "points": 36 },
+  { "name": "Max Anderson", "points": 28 },
+  { "name": "Santiago Chapa", "points": 30 },
+  { "name": "Neal Singh", "points": 36},
+  { "name": "Mitchell Price", "points": 34 }
 ]
 
 
